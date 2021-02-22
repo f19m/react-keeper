@@ -1,0 +1,44 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  font-family: $main-font;
+  color: #64635f;
+  font-weight: 400;
+}
+
+.lock{
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 55px;
+}
+
+h2{
+  font-family: $main-font;
+  font-size: 36px;
+  font-weight: 500;
+  color: $title-text;
+}
+
+.blackout{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 9;
+}
+
+@media (max-width: $mediaquery-medium){
+  .container{
+    padding: 0 20px;
+  }
+}

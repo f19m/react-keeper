@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 function LangSwitchItem({ value = null, defualt = null }) {
   const className = `header__dropdown-menu__language${defualt ? ' header__dropdown-menu__language--active' : ''}`;
   return (
-    <div className={className}>
+    <span className={className}>
       {value}
-    </div>
+    </span>
   );
 }
 
