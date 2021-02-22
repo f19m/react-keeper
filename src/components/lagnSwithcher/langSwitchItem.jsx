@@ -12,7 +12,7 @@ function LangSwitchItem({ value = null, defualt = null }) {
 
 LangSwitchItem.propTypes = {
   value: PropTypes.string.isRequired,
-  defualt: PropTypes.string,
+  defualt: PropTypes.bool,
 };
 
 LangSwitchItem.defaultProps = {

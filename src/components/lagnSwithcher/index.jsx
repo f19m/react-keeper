@@ -10,6 +10,7 @@ function LagnSwithcher() {
           <LangSwitchItem
             value={langName}
             defualt={idx === 0}
+            key={langName}
           />
         ))
       }
