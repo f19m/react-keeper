@@ -4,12 +4,13 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = (env, options) => {
-  const isProduction = options.mode === 'production';
+  // const isProduction = options.mode === 'production';
 
   const config = {
-    mode: isProduction ? 'production' : 'development',
+    mode: 'development', // isProduction ? 'production' : 'development',
     devtool: 'source-map',
-    watch: !isProduction,
+    // watch: !isProduction,
+    watch: true,
     entry: ['./src/index.jsx', './src/style.scss'],
     output: {
       path: path.join(__dirname, '/dist'),
@@ -63,9 +64,9 @@ module.exports = (env, options) => {
     },
 
     plugins: [
-      new CleanWebpackPlugin({
+      new CleanWebpackPlugin(/* {
         cleanStaleWebpackAssets: false,
-      }),
+      } */),
       new HtmlWebpackPlugin({
         template: './src/index.html',
       }),

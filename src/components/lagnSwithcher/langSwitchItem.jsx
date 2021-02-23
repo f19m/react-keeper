@@ -1,22 +1,43 @@
-import React from 'react';
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-function LangSwitchItem({ value = null, defualt = null }) {
-  const className = `header__dropdown-menu__language${defualt ? ' header__dropdown-menu__language--active' : ''}`;
-  return (
-    <span className={className}>
-      {value}
-    </span>
-  );
+class LangSwitchItem extends Component {
+  constructor(props) {
+    super(props);
+    this.name = props.value;
+    this.clickHandler = this.clickHandler.bind(this);
+  }
+
+  clickHandler() {
+    const { onChange } = this.props;
+    onChange(this.name);
+  }
+
+  render() {
+    const { value, isCurrent } = this.props;
+    const className = `header__dropdown-menu__language${isCurrent ? ' header__dropdown-menu__language--active' : ''}`;
+
+    return (
+      <span
+        className={className}
+        onClick={this.clickHandler}
+      >
+        {value}
+      </span>
+    );
+  }
 }
 
 LangSwitchItem.propTypes = {
   value: PropTypes.string.isRequired,
-  defualt: PropTypes.bool,
+  isCurrent: PropTypes.bool,
+  onChange: PropTypes.func.isRequired,
 };
 
 LangSwitchItem.defaultProps = {
-  defualt: '0',
+  isCurrent: false,
 };
 
 export default LangSwitchItem;
