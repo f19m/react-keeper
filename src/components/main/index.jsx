@@ -1,13 +1,3 @@
-import React from 'react';
+import Main from './main';
 
-function main() {
-  return (
-    <main className="main">
-      <div className="container">
-        <div className="main__inner" />
-      </div>
-    </main>
-  );
-}
-
-export default main;
+export default Main;
