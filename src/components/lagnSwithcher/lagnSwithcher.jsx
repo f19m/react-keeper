@@ -12,28 +12,18 @@ function LagnSwithcher(props) {
   const [langArr, setLangArr] = useState(langs);
   const [curLang, setCurLang] = useState(currentLang);
 
-  // useEffect(() => {
-  //   console.log('useEffect');
-  // }, [langArr]);
-
-  const changeLangHadler = (evt) => {
-    const { target } = evt;
-    const newCurrentLang = target?.textContent;
-
-    if (!newCurrentLang) return;
-
+  useEffect(() => {
     const newLangArr = langArr.map((lang) => {
       const langItem = lang;
-      langItem.isCurrent = (langItem.value === newCurrentLang);
+      langItem.isCurrent = (langItem.value === curLang);
       return lang;
     });
 
-    setCurLang(newCurrentLang);
     setLangArr(newLangArr);
-  };
+  }, [curLang]);
 
   return (
-    <div className="language-switcher" onClick={changeLangHadler}>
+    <div className="language-switcher" onClick={(evt) => setCurLang(evt.target.textContent)}>
       {
         langArr.map((langItem) => {
           const { value, isCurrent } = langItem;
