@@ -6,17 +6,17 @@ export default (url) => {
   const [isLoading, setIsLoading] = useState(false);
   const [response, setResponse] = useState(null);
   const [error, setError] = useState(null);
+  const [options, setOptions] = useState({});
 
-  const doFetch = () => { };
+  const doFetch = (fetchOptions = {}) => {
+    setOptions(fetchOptions);
+    setIsLoading(true);
+  };
 
+  // options = {method: post, dat:{param1: test, param2:'test2'}}
   useEffect(() => {
     if (!isLoading) return;
-    axios(serverUrl + url, {
-      method: 'POST',
-      data: {
-
-      },
-    }).then((res) => {
+    axios(serverUrl + url, options).then((res) => {
       console.log(`Success on ${url}:`, res);
       setIsLoading(false);
       setResponse(res.data);
@@ -26,7 +26,7 @@ export default (url) => {
         setIsLoading(false);
         setError(error.response.data);
       });
-  });
+  }, [isLoading]);
 
   return [{ isLoading, response, error }, doFetch];
 };
