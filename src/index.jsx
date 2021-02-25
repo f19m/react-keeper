@@ -1,11 +1,12 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './style.scss';
 // import reportWebVitals from './reportWebVitals';
-import BG from 'components/bg';
-import Header from 'components/header';
-import Main from 'components/main';
-import Footer from 'components/footer';
+import BG from './components/bg';
+import Header from './components/header';
+import Main from './components/main';
+import Footer from './components/footer';
 
 function App() {
   return (
